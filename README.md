@@ -2,20 +2,6 @@
 
 This is a simple Flask application that allows users to submit feedback. The application uses MongoDB as the database to store the feedback data and is Dockerized for easy setup and deployment.
 
-## Table of Contents
-
-- [Features](#features)
-- [Requirements](#requirements)
-- [Setup](#setup)
-  - [Clone the Repository](#clone-the-repository)
-  - [Environment Variables](#environment-variables)
-  - [Docker Setup](#docker-setup)
-  - [Running the Application](#running-the-application)
-  - [Accessing MongoDB](#accessing-mongodb)
-  - [Admin Interface](#admin-interface)
-- [Screenshots](#screenshots)
-- [License](#license)
-
 ## Features
 
 - **Feedback Form**: Users can submit their feedback through a simple form with fields for name, email, message, and phone number.
@@ -74,11 +60,14 @@ You can access MongoDB using MongoDB Compass or the MongoDB shell.
 Admin Interface
 
 The admin interface is available at http://localhost:5000/admin.
+
 Screenshots
+
 Feedback Form
 ![Screenshot from 2024-06-14 12-12-12](https://github.com/GANESHARAVIND-124/PFlask-Feedback-Application/assets/70093284/16dfa8ec-e779-480f-9ca0-423c5133e532)
 
 Success Page
+
 ![Screenshot from 2024-06-14 12-12-50](https://github.com/GANESHARAVIND-124/PFlask-Feedback-Application/assets/70093284/d14800c4-3b90-467b-ab6d-26b7d42ad032)
 
 Admin Interface
@@ -95,27 +84,8 @@ Happy coding!
 '''bash
 
 
-### Adding Images
+### Commit your changes and push them to GitHub:
 
-To add images to your README file:
-1. Create an `images` directory in the root of your project.
-2. Add your screenshots to the `images` directory.
-3. Ensure the image paths in the `README.md` file are correct.
-
-### Example
-
-bash
-mkdir images
-# Move your screenshots to the images directory
-mv feedback_form.png images/
-mv success_page.png images/
-mv admin_interface.png images/
-
-Final Step
-
-Commit your changes and push them to GitHub:
-
-bash
 
 git add .
 git commit -m "Add README and images"
