@@ -18,7 +18,7 @@ def submit_feedback():
     email = request.form['email']
     message = request.form['message']
     number = request.form['number']
-
+# /
     feedback = {
         'name': name,
         'email': email,
