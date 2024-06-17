@@ -2,7 +2,8 @@ import os
 from flask import Flask, render_template, request, redirect
 from flask_pymongo import PyMongo  # type: ignore
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
+
 
 # Set up MongoDB
 app.config['MONGO_URI'] = os.environ.get('MONGO_URI', 'mongodb://mongo:27017/my_flask_app_db')

@@ -19,6 +19,9 @@ spec:
     spec: 
       containers:
       - name: feedback
-        image: pflask-feedback-application_web
+        image: ganesharavind124/flaskapp:latest
         ports:
         - containerPort: 5000
+        env:
+        - name: MONGO_URI
+          value: "mongodb://mongo:27017/my_flask_app_db"
