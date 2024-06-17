@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: feedback
+  labels:
+    app: feedback
+    type: front-end 
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: feedback
+      type: front-end 
+  template:
+    metadata:
+      labels:
+        app: feedback
+        type: front-end 
+    spec: 
+      containers:
+      - name: feedback
+        image: pflask-feedback-application_web
+        ports:
+        - containerPort: 5000
