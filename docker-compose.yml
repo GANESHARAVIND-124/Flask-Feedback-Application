@@ -18,7 +18,7 @@ services:
     environment:
       FLASK_APP: app.py
       FLASK_ENV: development
-      MONGO_URI: mongodb://mongo:27017/my_flask_app_db  # Connect to MongoDB service
+      MONGO_URI: mongodb://mongo:27017/my_flask_app_db 
     depends_on:
       - mongo
 
