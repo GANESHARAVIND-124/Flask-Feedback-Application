@@ -1,13 +1,25 @@
 import os
 from flask import Flask, render_template, request, redirect
-from flask_pymongo import PyMongo  # type: ignore
+from pymongo import MongoClient
+from urllib.parse import quote_plus  # Import quote_plus
 
 app = Flask(__name__, static_url_path='/static')
 
+# Replace these with your actual MongoDB username and password
+username = "ganesharavind124"
+password = "19cs031@Ga"  # Replace with your actual password
 
-# Set up MongoDB
-app.config['MONGO_URI'] = os.environ.get('MONGO_URI', 'mongodb://mongo:27017/my_flask_app_db')
-mongo = PyMongo(app)
+# URL-encode the username and password
+encoded_username = quote_plus(username)
+encoded_password = quote_plus(password)
+
+# Construct the MongoDB URI
+mongo_uri = f"mongodb+srv://{encoded_username}:{encoded_password}@cluster0.ukf6c.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+# Set up MongoDB connection using PyMongo
+client = MongoClient(mongo_uri)
+
+# Specify the database name you want to use
+db = client.get_database('my_flask_app_db')  # Replace 'my_flask_app_db' with your actual database name
 
 @app.route('/')
 def index():
@@ -19,7 +31,7 @@ def submit_feedback():
     email = request.form['email']
     message = request.form['message']
     number = request.form['number']
-# /
+
     feedback = {
         'name': name,
         'email': email,
@@ -27,7 +39,8 @@ def submit_feedback():
         'number': number
     }
     
-    mongo.db.feedback.insert_one(feedback)
+    # Insert feedback into the MongoDB collection
+    db.feedback.insert_one(feedback)
     
     return redirect('/success')
 
